@@ -1,0 +1,24 @@
+{
+  "name": "mandlebrot",
+  "version": "0.1alpha",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node node_modules/concurrently/src/main.js -k \"node node_modules/http-server/bin/http-server -p 8000\" \"node node_modules/watchify/bin/cmd.js -d src/main.js -o assets/bundle.js -v\" \"node node_modules/watchify/bin/cmd.js -d src/workers/generate.js -o assets/worker_generate.js -v\"",
+    "test": "node node_modules/tape/bin/tape tests/*.js | node node_modules/tap-spec/bin/cmd.js"
+  },
+  "eslintConfig": {
+    "ecmaVersion": 6
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "browserify": "^13.1.0",
+    "concurrently": "^2.2.0",
+    "http-server": "^0.9.0",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.6.0",
+    "tinygradient": "^0.3.0",
+    "watchify": "^3.7.0"
+  }
+}
