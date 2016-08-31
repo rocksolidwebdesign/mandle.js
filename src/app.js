@@ -37,7 +37,7 @@ var App = {
 
     var workerTasks = cut_points.map(function(cp) {
       return new Promise(function(resolve, reject) {
-        var myWorker = new Worker('worker_generate.js');
+        var myWorker = new Worker('assets/worker_generate.js');
 
         myWorker.onmessage = resolve;
 
