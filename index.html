@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mandlebrot</title>
+    <title>Mandle.js</title>
     <meta charset="utf-8">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -25,7 +25,6 @@
           </div>
           <div class="form-group">
             <label for="mandle_canvas_input_size">Size</label>
-            <!--<input type="text" class="form-control js-input-pixels" size="3" id="mandle_canvas_input_size" value="100">-->
             <select class="form-control js-input-pixels" id="mandle_canvas_input_size">
               <option value="100" selected="selected">100x100</option>
               <option value="200">250x250</option>
@@ -37,7 +36,7 @@
           </div>
           <div class="form-group">
             <label for="mandle_canvas_input_iterations">Passes</label>
-            <input value="50" size="2" maxlength="3" class="form-control js-input-iterations" id="mandle_canvas_input_iterations">
+            <input value="50" size="4" maxlength="3" class="form-control js-input-iterations" id="mandle_canvas_input_iterations">
           </div>
           <div class="form-group">
             <label for="mandle_canvas_input_iterations">Threads</label>
@@ -91,12 +90,13 @@
         <form class="form-inline js-display-form" style="padding-top: 8px;" action="" method="GET">
           <div class="form-group">
             <label>Zoom Level</label>
-            <input type="text" size="3" disabled="disabled" class="form-control js-zoom-display" value="100%">
+            <input type="text" size="5" disabled="disabled" class="form-control js-zoom-display" value="100%">
           </div>
         </form>
       </div>
     </nav>
 
+    <!--
     <div style="display: none;">
       <div id="disclaimer" title="Terms and Conditions">
         <textarea disabled="disabled" rows="5" cols="20" style="width: 100%">THIS SOFTWARE IS PROVIDED BY THE AUTHORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHORS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</textarea>
@@ -108,15 +108,40 @@
         </p>
       </div>
     </div>
+    -->
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="disclaimer">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Terms and Conditions</h4>
+          </div>
+          <div class="modal-body">
+            <textarea disabled="disabled" rows="5" cols="20" style="width: 100%">THIS SOFTWARE IS PROVIDED BY THE AUTHORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHORS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</textarea>
+            <p>
+              <strong>WARNING: </strong> This thing can make your computer gasp, wheeze and cry. Want to see how powerful your machine is? Up the settings. Can you zoom all the way to 1500%?
+            </p>
+            <p>
+            While generally harmless, <a href="https://en.wikipedia.org/wiki/Floating_point#Dealing_with_exceptional_cases" target="_blank" style="color: blue;">floating point arithemetic issues</a> sometimes necessitate a simple refresh. Big decimal support may be added in a future release.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary js-disclaimer-ok">I Agree</button>
+            <button type="button" class="btn btn-default js-disclaimer-cancel">No Thanks</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
 
     <!-- Latest compiled and minified JavaScript
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
     -->
 
-    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <script src="assets/bundle.js" type="text/javascript"></script>
   </body>

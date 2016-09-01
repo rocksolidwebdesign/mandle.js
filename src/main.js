@@ -7,21 +7,21 @@ var canvas = document.getElementById('canvas');
 var m = Mandle.init_mandle_config(canvas);
 
 function disclaimer() {
-  $("#disclaimer").dialog({
-    resizable: false,
-    height: "auto",
-    width: 600,
-    modal: true,
-    buttons: {
-      "I Agree": function() {
-        $(this).dialog("close");
-        Ui.bind_events(m);
-        Ui.onRender(m);
-      },
-      "No Thanks": function() {
-        //$(this).dialog("close");
-        window.location.href = 'http://www.rocksolidwebdesign.com/';
-      }
-    }
+  var $d = $('#disclaimer');
+
+  $d.on('hidden.bs.modal', function (e) {
   });
+
+  $('.js-disclaimer-ok').on('click', function(e) {
+    Ui.bind_events(m);
+    Ui.onRender(m);
+
+    $d.modal('hide');
+  });
+
+  $('.js-disclaimer-cancel').on('click', function(e) {
+    window.location.href = 'http://www.rocksolidwebdesign.com/';
+  });
+
+  $d.modal();
 }
